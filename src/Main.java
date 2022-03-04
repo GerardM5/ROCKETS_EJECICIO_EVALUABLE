@@ -6,13 +6,27 @@ public class Main {
 
         try {
             List<Rocket> rockets = new ArrayList<>();
-            rockets = createRockets(rockets);
+            createRockets(rockets);
+            addPropellersToRockets(rockets);
             showRockets(rockets);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
 
+    }
+
+    private static void addPropellersToRockets(List<Rocket> rockets) throws Exception {
+        for (Rocket currentRocket : rockets) {
+            createPropellers(currentRocket);
+
+        }
+    }
+
+    private static void createPropellers(Rocket currentRocket) throws Exception {
+        for (int i = 0; i < currentRocket.getNumPropellers(); i++) {
+            currentRocket.createPropeller(((int) (Math.random() * 10 + 1) * 10));
+        }
     }
 
     private static void showRockets(List<Rocket> rockets) {
