@@ -27,12 +27,31 @@ public class Rocket {
         return numPropellers;
     }
 
+    public int getCurrentPower() {
+        int currentPower = 0;
+        for (Propeller currentPropeller : propellers) {
+            currentPower += currentPropeller.getCurrentPower();
+        }
+        return currentPower;
+    }
+
+    public void speedUp() {
+        for (Propeller currentPropeller : propellers) {
+            currentPropeller.speedUp();
+        }
+    }
+
+    public void speedDown() {
+        for (Propeller currentPropeller : propellers) {
+            currentPropeller.speedDown();
+        }
+    }
 
     @Override
     public String toString() {
         return "Rocket{" +
                 "id='" + id + '\'' +
-                ", numPropellers=" + numPropellers +
+                ", currentPower=" + numPropellers +
                 ", propellers=" + propellers +
                 '}';
     }
